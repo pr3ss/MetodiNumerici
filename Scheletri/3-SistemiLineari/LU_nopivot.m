@@ -32,11 +32,13 @@
           return
       end
       %Eliminazione gaussiana
-       %Scrivi qui il codice che modifica le righe successive alla k-esima
-       % calcola il moltiplicatore per la riga i
-       %modifica la riga i negli elementi di posizione j da k+1 in avanti
-         end
+      %Scrivi qui il codice che modifica le righe successive alla k-esima
+      % calcola il moltiplicatore per la riga i
+      %modifica la riga i negli elementi di posizione j da k+1 in avanti
+      U(k+1:n,k)=U(k+1:n,k)/U(k,k);                                         %ADD
+      U(k+1:n,k+1:n)=U(k+1:n,k+1:n)-U(k+1:n,k)*U(k,k+1:n);                  %ADD
+end
   
-  L=  % Estrae i moltiplicatori 
-  U=           % Estrae la parte triangolare superiore + diagonale
+  L=tril(U,-1)+eye(n); % Estrae i moltiplicatori                            %ADD
+  U=triu(U);   % Estrae la parte triangolare superiore + diagonale          %ADD
   
