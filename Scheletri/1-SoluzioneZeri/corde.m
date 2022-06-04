@@ -3,6 +3,10 @@ function [x1,xk,it]=corde(fname,m,x0,tolx,tolf,nmax)
 fx0=fname(x0);
 %calcola soluzione x1
 
+d=fx0/m;       %ADD
+x1=x0-d;       %ADD
+fx1=fname(x1)  %ADD
+
 it=1;
 xk(it)=x1;
 fprintf('it=%d  x=%8.15f \n',it,x1);
@@ -11,6 +15,10 @@ while it<nmax && abs(fx1)>=tolf && abs(d)>=tolx*abs(x1)
 
 % Calcola soluzione x1
 
+   fx0=fname(x0); %ADD
+   d=fx0/m;       %ADD
+   x1=x0-d;       %ADD
+   
    fx1=fname(x1);
    it=it+1;
    xk(it,:)=x1; 

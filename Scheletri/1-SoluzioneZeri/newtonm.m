@@ -1,10 +1,10 @@
-function [x1,xk,it]=newton(fname,fpname,x0,tolx,tolf,nmax)
+function [x1,xk,it]=newtonm(fname,fpname,x0,tolx,tolf,nmax)
 
 fx0=fname(x0);
 dfx0=fpname(x0);
 if abs(dfx0)>eps
     d=fx0/dfx0;     %ADD
-    x1=x0-d;        %ADD
+    x1=x0-m*d;      %ADD DIFF
     fx1=fname(x1);  %ADD
     it=1;           %ADD
     xk(it)=x1;      %ADD
@@ -23,7 +23,7 @@ while it<nmax && abs(fx1)>=tolf && abs(d)>=tolx*abs(x1)  %ADD
     dfx0=fpname(x0);
     if abs(dfx0)>eps
         d=fx0/dfx0;           %ADD
-        x1=x0-d;              %ADD
+        x1=x0-m*d;            %ADD DIFF
         fx1=feval(fname,x1);  %ADD
         it=it+1;              %ADD
         xk(it,:)=x1;          %ADD
