@@ -23,18 +23,21 @@ matjac=jac(x0);
 %Utilizzo per tuttol 'algoritmo la valutazione della matrice Jacobiano
 %nell'iterato iniziale
 if det(matjac)==0
-     
+      x1=[];    %ADD
+      Xm=[];    %ADD
+      it=[];    %ADD
 
       return
 else
 
-%aggiornamento della soluzione
-it=1;
-
-fx1=fun(x1);
+    s=matjac\fun(x0);                %ADD
+    %aggiornamento della soluzione
+    it=1;
+    x1=x0-s;                         %ADD
+    fx1=fun(x1);
 end
 Xm=[norm(s,1)/norm(x1,1)]
-while   ....
+while   it<=nmax && norm(fx1,1)>=tolf && norm(s,1)>=tolx*norm(x1,1) %ADD
    x0=x1;
    it=it+1;
    %Risolvo il sistema lineare aventa come matrice dei coefficienti la
@@ -42,10 +45,12 @@ while   ....
    %nell'iterato inziale e come termine noto la Funzione vettoriale F valutata
    %in x0
      
-    %aggiornamento della soluzione
-    
-
-    Xm=[Xm;norm(s,1)/norm(x1,1)];
+   s=matjac\fun(x0);                %ADD
+   %aggiornamento della soluzione
+   x1=x0-s;                         %ADD
+   fx1=fun(x1)                      %ADD 
+   
+   Xm=[Xm;norm(s,1)/norm(x1,1)];
 end
 
 if it==100

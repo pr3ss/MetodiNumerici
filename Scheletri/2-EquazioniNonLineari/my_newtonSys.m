@@ -20,31 +20,38 @@ function [x1,Xm,it]= my_newtonSys(fun,jac,x0,tolx,tolf,nmax)
 
 matjac=jac(x0);
 if det(matjac)==0
-       %to do 
+       x1=[];  %ADD
+       Xm=[];  %ADD
+       it=[];  %ADD
        return
 else
-
-%aggiornamento della soluzione
-it=1;
-
-
+    s=matjac\fun(x0);                 %ADD
+    
+    %aggiornamento della soluzione
+    it=1;
+    x1=x0-s;                          %ADD
+    fx1=fun(x1);                      %ADD
 end
+
 Xm=[norm(s,1)/norm(x1,1)]
-while  
+while  it<=nmax && norm(fx1,1)>=tolf && norm(s,1)>=tolx*norm(x1,1) %ADD
    x0=x1;
    it=it+1;
    matjac=jac(x0);
    if det(matjac)==0
-      
+       x1=[];   %ADD
+       Xm=[];   %ADD
+       it=[];   %ADD
        return
    else
    %Risolvo il sistema lineare aventa come matrice dei coefficienti la
    %matrice Jacobiana e come termine noto la Funzione vettoriale F valutata
    %in x0
       
-
+    s=matjac\fun(x0);                %ADD
     %aggiornamento della soluzione
-
+    x1=x0-s;                         %ADD
+    fx1=fun(x1);                     %ADD
     
     Xm=[Xm;norm(s,1)/norm(x1,1)];
    end
