@@ -1,4 +1,4 @@
-function [x,xk,it]=bisez(fname,a,b,tol)
+function [x,xk,it]=bisezione(fname,a,b,tol)
 
 fa=fname(a);
 fb=fname(b);
