@@ -16,5 +16,8 @@ yy=zeros(1,m);
 for k=1:n
     %calcola i coefficienti del k-esimo polinomio di Lagrange e denota con
     %Lk la sua valutazione nei punti xx 
+    
+    p=plagr(x,k);       %ADD
+    Lk=polyval(p,xx);   %ADD
     yy=yy+f(k)*Lk;
 end
