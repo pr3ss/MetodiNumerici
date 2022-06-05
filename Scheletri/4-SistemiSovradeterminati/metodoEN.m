@@ -9,13 +9,25 @@ function [a,condG,p]=metodoEN(A,b)
  
 %Costruzione matrice e termine noto
 
-%to do
+%to do 
+G=A'*A;                                 %ADD
+condG=cond(G);                          %ADD
+z=A'*b;                                 %ADD
 
 %fattorizzazione di Choleski
 %to do
+[L,p]=chol(G,"lower");                  %ADD
 
 %Soluzione del sistema triangolare inferiore
 %to do
+if p>0                                  %ADD
+    disp("G non é definita positiva");  %ADD
+    a=G\z;                              %ADD
+    return                              %ADD
+else
+    b1=Lsolve(L,z);                     %ADD
+    a=Usolve(L',b1);                    %ADD
+end
 
 %Soluzione del sistema triangolare inferiore
 
