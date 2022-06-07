@@ -13,7 +13,7 @@ alpha(1)=a(1);
 for i=2:n
      %Calcolare beta ed alfa
      beta(i)=b(i)/alpha(i-1);           %ADD
-     alpha(i)=a(1)-beta(i)*c(i-1)       %ADD
+     alpha(i)=a(i)-beta(i)*c(i-1)       %ADD
 end
 
 %Soluzione sistema bidiagonale inferiore con termine noto d

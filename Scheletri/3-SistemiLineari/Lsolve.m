@@ -24,7 +24,7 @@
  % Preallocazione vettore soluzione
  x=zeros(n,1);
  % Risoluzione forward
- for i=1:n
+ for i=1:n                                      %ADD
       x(i)=(b(i)-L(i,1:i-1)*x(1:i-1)) / L(i,i); %ADD
  end
  

@@ -50,14 +50,14 @@ while it<=nmax && norm(fx1,1)>=tolf && norm(s,1)>=tolx*norm(x1,1)  %ADD
          %Risolvo il sistema lineare aventa come matrice dei coefficienti la
          %matrice Jacobiana e come termine noto la Funzione vettoriale F valutata
          %in x0
-         s=matjac\fun(x1);   %ADD
+         s=matjac\fun(x0);   %ADD
          
         end
    else
          %non aggiorno la valutazione della matrice Jacobiano, mantengo la
          %stessa per 10 iterazioni
          
-         s=matjac\fun(x1);   %ADD
+         s=matjac\fun(x0);   %ADD
    end
    %aggiornamento della soluzione
    x1=x0-s;     %ADD

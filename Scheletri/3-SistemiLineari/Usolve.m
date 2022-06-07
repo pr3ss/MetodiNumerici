@@ -24,7 +24,7 @@
  % Preallocazione vettore soluzione
  x=zeros(n,1);
  % Risoluzione backward
- for i=n:-1:1 
+ for i=n:-1:1                                  %ADD
      x(i)=(b(i)-U(i,i+1:n)*x(i+1:n)) / U(i,i); %ADD
  end
  
