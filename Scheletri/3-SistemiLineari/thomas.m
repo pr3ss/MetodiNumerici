@@ -19,7 +19,7 @@ end
 %Soluzione sistema bidiagonale inferiore con termine noto d
 y(1)=d(1);
 for i=2:n
-    d(i)=d(i)-beta(i)*y(i-1);           %ADD
+    y(i)=d(i)-beta(i)*y(i-1);           %ADD
 end
 
 %soluzione del sistema bidiagonale superiore con termine noto uguale alla soluzione
