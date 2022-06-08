@@ -32,9 +32,9 @@ else
 
     s=matjac\fun(x0);                %ADD
     %aggiornamento della soluzione
-    it=1;
+    it=1;                            %ADD
     x1=x0-s;                         %ADD
-    fx1=fun(x1);
+    fx1=fun(x1);                     %ADD
 end
 Xm=[norm(s,1)/norm(x1,1)]
 while   it<=nmax && norm(fx1,1)>=tolf && norm(s,1)>=tolx*norm(x1,1) %ADD

@@ -28,7 +28,7 @@ else
     s=matjac\fun(x0);                 %ADD
     
     %aggiornamento della soluzione
-    it=1;
+    it=1;                             %ADD
     x1=x0-s;                          %ADD
     fx1=fun(x1);                      %ADD
 end
